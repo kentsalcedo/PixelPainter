@@ -37,8 +37,8 @@ h1, h2 {
 }
 
 .inPixel {
-  height: 40px;
-  width: 40px;
+  height: 18px;
+  width: 18px;
   background-color: white;
   float: left;
   border: black dotted 1px;
@@ -49,5 +49,10 @@ h1, h2 {
   width: 40px;
   background-color: white;
   float: left;
-  border: black dotted 1px;
+  border: white solid 1px;
+}
+
+.color {
+  color: black;
+  background-color: black;
 }

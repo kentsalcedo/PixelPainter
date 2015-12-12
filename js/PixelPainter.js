@@ -1,4 +1,8 @@
-var selectedColor = '';
+// var pixelPaint = (function(){
+
+var selectedColor = 'black';
+
+var counter = 0;
 
 // creates side menu
 
@@ -15,103 +19,54 @@ var addSideMenu = function(){
 //invoke side menu
 addSideMenu();
 
+var colorArray = ['black', 'white', 'red', 'silver', 'gray', 'maroon', 'yellow', 'olive', 'lime', 'green', 'aqua', 'teal', 'blue', 'navy', 'fuchsia', 'purple', 'pink', 'hotpink', 'deeppink', 'lightsalmon', 'salmon', 'crimson', 'orangered', 'coral', 'darkorange', 'orange', 'darkolivegreen', 'mediumspringgreen', 'lightgreen', 'darkseagreen', 'forestgreen', 'lavender', 'violet', 'mediumpurple', 'darkslateblue', 'khaki', 'darkkhaki', 'lightsteelblue', 'powderblue', 'dodgerblue', 'midnightblue', 'brown'];
 
 var targetSideMenu = document.getElementById('sideMenu');
 
-//creates actual color pallett
+for (var i = 0; i < colorArray.length; i++) {
 
-var palBox = document.createElement('div');
-  palBox.className = 'palBox';
+  var pal = document.createElement('div');
+  pal.className = 'palBox';
+  pal.id = i;
+  pal.style.background = colorArray[i];
 
-var palBoxie = function() {
-  targetSideMenu.appendChild(palBox);
-};
+  targetSideMenu.appendChild(pal);
 
-console.log(targetSideMenu);
-
-var j = 0;
-
-while ( j < 56 ){
-  colorPal();
-  console.log('heeloo');
-  j++;
+  pal.addEventListener('click', function(){
+    // console.log(colorArray[this.id]);
+    // console.log(selectedColor);
+    return selectedColor = colorArray[this.id];
+  });
 }
 
-
-colorPal();
-
-  // color array
-
-  //create side menu title bar
-
-  //creates function to create each box in pal
-
-  //creates color palette grid
-            // var colorPal = function(){
-            //   var palBox = document.createElement('div');
-            //   palBox.className = 'palBox';
-
-            //   side.appendChild(palBox);
-
-            //   console.log(palBox);
-            // };
-
-            // var i = 0;
-
-            // while (i < 56) {
-            //   colorPal();
-            //   i++;
-            // }
-
-//   var colorPal = function(){
-//     var palBox = document.createElement('div');
+// var palBoxie = function() {
+//   var palBox = document.createElement('div');
 //     palBox.className = 'palBox';
-//     var i = 0;
-//     while (i < 56) {
-//       // targetSideMenu.appendChild(palBox);
-//       i++;
-//       console.log(targetSideMenu);
-//     }
-//   };
-
-//   colorPal();
-
-
-
-
-//   //creates erase button inside of side menu, erases one button you click on
-//   var eraseButton = function(){
-
-//   };
-
-//   //creates clear button inside of side menu, clears all
-//   var clearButton = function(){
-
-//   };
-// // end of side menu
+//     palBox.id = 'swatch'+counter;
+//     targetSideMenu.appendChild(palBox);
+//     counter++;
 // };
 
+// var j = 0;
 
-var addPixel = function() {
-  var mainDisplay = document.getElementById('main');
+// while ( j < 56 ){
+//   palBoxie();
+//   j++;
+// }
 
-  var pixel = document.createElement('div');
-    pixel.className = 'inPixel';
 
-    mainDisplay.appendChild(pixel);
+var targetMainMenu = document.getElementById('main');
 
-};
-
-var i = 0;
-
-while (i < 500) {
-  addPixel();
-  i++;
+for (var i = 0; i < 2000; i++) {
+  var pix = document.createElement('div');
+    pix.id = 'pix'+1;
+  targetMainMenu.appendChild(pix);
+    pix.className = 'inPixel';
+    pix.addEventListener('click', function(){
+      this.style.background = selectedColor;
+    });
 }
 
-// var selectedPixel = document.getElementsByClassName('inPixel')[i];
 
-// selectedPixel.addEventListener('click', function (event){
-//   var thisPixel = this.querySelector(".inPixel");
-//   console.log('hello');
-// });
+// })();
+
