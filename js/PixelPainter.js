@@ -4,15 +4,10 @@ var selectedColor = 'black';
 
 var counter = 0;
 
-// creates side menu
-
 var addSideMenu = function(){
   var mainDisplay = document.getElementById('main');
-
   var side = document.createElement('div');
     side.id = 'sideMenu';
-  //var targetSideMenu = document.getElementById('sideMenu');
-    // appends div to main display
     mainDisplay.appendChild(side);
 //end of side menu add function
 };
@@ -84,8 +79,7 @@ var defaultCanvas = function(){
     getDefault3.style.background = 'gray';
   }
 
-  // console.log('hellooooo');
-
+  console.log('defaulted canvas');
 };
 
 defaultCanvas();
@@ -96,17 +90,10 @@ clearButton.id = 'clearButton';
 
 targetSideMenu.appendChild(clearButton);
 
-// clearButton.addEventListener('click', function(){
-//   console.log('hellooooo');
-//   var selectAllPixels = document.querySelectorAll("div.inPixel");
-//     for (var m = 0; m < 2000; m++) {
-//     selectAllPixels[i].style.background = 'white';
-//   };
-// });
 
 clearButton.addEventListener('click', function(){
   var selectAllPixels = document.querySelectorAll("div.inPixel");
-  for (var m = 0; m < 2000; m++) {
+  for (var m = 0; m < 1316; m++) {
     selectAllPixels[m].style.background = 'white';
   }
   defaultCanvas();
@@ -121,13 +108,7 @@ eraseButton.id = 'eraserButton';
 
 targetSideMenu.appendChild(eraseButton);
 
-// clearButton.addEventListener('click', function(){
-//   console.log('hellooooo');
-//   var selectAllPixels = document.querySelectorAll("div.inPixel");
-//     for (var m = 0; m < 2000; m++) {
-//     selectAllPixels[i].style.background = 'white';
-//   };
-// });
+
 
 eraseButton.addEventListener('click', function(){
   selectedColor = 'white';
