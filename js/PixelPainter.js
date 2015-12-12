@@ -1,7 +1,5 @@
 var selectedColor = '';
 
-
-
 // creates side menu
 
 var addSideMenu = function(){
@@ -17,16 +15,28 @@ var addSideMenu = function(){
 //invoke side menu
 addSideMenu();
 
+
 var targetSideMenu = document.getElementById('sideMenu');
 
 //creates actual color pallett
-var colorPal = function(){
-  var palBox = document.createElement('div');
-  var i = 0;
-    palBox.className = 'palBox';
 
-    targetSideMenu.appendChild(palBox);
+var palBox = document.createElement('div');
+  palBox.className = 'palBox';
+
+var palBoxie = function() {
+  targetSideMenu.appendChild(palBox);
 };
+
+console.log(targetSideMenu);
+
+var j = 0;
+
+while ( j < 56 ){
+  colorPal();
+  console.log('heeloo');
+  j++;
+}
+
 
 colorPal();
 
