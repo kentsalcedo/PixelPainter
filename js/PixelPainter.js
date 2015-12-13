@@ -4,6 +4,8 @@ var selectedColor = 'black';
 
 var counter = 0;
 
+var mouseState = false;
+
 var addSideMenu = function(){
   var mainDisplay = document.getElementById('main');
   var side = document.createElement('div');
