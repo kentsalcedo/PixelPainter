@@ -6,6 +6,8 @@ var counter = 0;
 
 var mouseStateDown = false;
 
+var previousColors = [];
+
 var addSideMenu = function(){
   var mainDisplay = document.getElementById('main');
   var side = document.createElement('div');
@@ -54,14 +56,19 @@ for (var i = 0; i < 1316; i++) {
     pix.className = 'inPixel';
     pix.addEventListener('mousedown', function(){
       if ( mouseStateDown === false ){
+        var objPreviousState = { pixel: this.id, bg: this.style.background };
+        previousColors.push(objPreviousState);
+        //previousColor[this.id] = this.style.background;
         this.style.background = selectedColor;
         mouseStateDown = true;
+        console.log(previousColors);
       }
     });
     pix.addEventListener('mouseover', function(){
       if ( mouseStateDown === true ){
+        var objPreviousState = { pixel: this.id, bg: this.style.background };
+        previousColors.push(objPreviousState);
         this.style.background = selectedColor;
-        // mouseStateDown = true;
       }
     });
     pix.addEventListener('mouseup', function(){
@@ -130,6 +137,28 @@ eraseButton.addEventListener('click', function(){
   selectedColor = 'white';
 });
 
+
+var undoButton = document.createElement('button');
+undoButton.innerHTML = 'UNDO';
+undoButton.id = 'undoButton';
+
+targetSideMenu.appendChild(undoButton);
+
+
+undoButton.addEventListener('click', function(){
+  if ( previousColors.length > 0 ){
+    var undoPix = previousColors[previousColors.length-1];
+    var undoPixel = previousColors[previousColors.length-1].pixel;
+    var undoPixelColor = previousColors[previousColors.length-1].bg;
+    var targetPixelToUndo = document.getElementById(undoPixel);
+      targetPixelToUndo.style.background = undoPixelColor;
+      console.log(undoPix);
+      console.log(targetPixelToUndo);
+      previousColors.pop();
+  } else {
+    console.log('no more undos');
+  }
+});
 
 
 

@@ -75,6 +75,11 @@ h1, h2 {
   background-color: white;
   margin-top: 20px;
   margin-left: 20px;
-  box-shadow:inset 0px 1px 0px 0px #9acc85;
 }
 
+#undoButton {
+  color: black;
+  background-color: white;
+  margin-top: 20px;
+  margin-left: 20px;
+}
