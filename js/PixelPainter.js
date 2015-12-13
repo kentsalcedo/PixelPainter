@@ -4,7 +4,7 @@ var selectedColor = 'black';
 
 var counter = 0;
 
-var mouseState = false;
+var mouseStateDown = false;
 
 var addSideMenu = function(){
   var mainDisplay = document.getElementById('main');
@@ -52,8 +52,22 @@ for (var i = 0; i < 1316; i++) {
     pix.id = 'pix'+i;
   targetMainMenu.appendChild(pix);
     pix.className = 'inPixel';
-    pix.addEventListener('click', function(){
-      this.style.background = selectedColor;
+    pix.addEventListener('mousedown', function(){
+      if ( mouseStateDown === false ){
+        this.style.background = selectedColor;
+        mouseStateDown = true;
+      }
+    });
+    pix.addEventListener('mouseover', function(){
+      if ( mouseStateDown === true ){
+        this.style.background = selectedColor;
+        // mouseStateDown = true;
+      }
+    });
+    pix.addEventListener('mouseup', function(){
+      if ( mouseStateDown === true ){
+         mouseStateDown = false;
+      }
     });
 }
 
