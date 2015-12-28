@@ -1,7 +1,7 @@
 Changed READ ME!! ^_^V
 
 PixelPainter
-============
+===========
 
 > Coloring pixels in a grid
 
